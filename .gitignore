@@ -9,6 +9,6 @@ application/logs/*
 nbproject/*
 
 # SASS
-#assets/styles/templates/admin/default/.sass-cache/*
-#assets/styles/templates/default/.sass-cache/*
-#assets/styles/templates/extranet/default/.sass-cache/*
+#public_html/.sass-cache/*
+#public_html/config.rb
+#public_html/sass/*

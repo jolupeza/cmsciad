@@ -8,14 +8,37 @@ class User_model extends MY_Model {
         $this->_tableName = 'users';
         $this->_orderBy = 'name';
         $this->_rules = array(
-          'email'    => array('field' => 'email', 'label' => 'Email', 'rules' => 'trim|required|valid_email'),
-          'password' => array('field' => 'password', 'label' => 'Password', 'rules' => 'trim|required'),
+            'email'    => array(
+                'field' => 'email', 
+                'label' => 'Email', 
+                'rules' => 'trim|required|valid_email'
+            ),
+            'password' => array(
+                'field' => 'password', 
+                'label' => 'Password', 
+                'rules' => 'trim|required|min_length[6]'),
         );
         $this->_rulesAdmin = array(
-            'name'    => array('field' => 'name', 'label' => 'Name', 'rules' => 'trim|required'),
-            'email'    => array('field' => 'email', 'label' => 'Email', 'rules' => 'trim|required|valid_email|callback__uniqueEmail'),
-            'password' => array('field' => 'password', 'label' => 'Password', 'rules' => 'trim|matches[password_confirm]'),
-            'password_confirm' => array('field' => 'password_confirm', 'label' => 'Confirm password', 'rules' => 'trim|matches[password]'),
+            'name'    => array(
+                'field' => 'name', 
+                'label' => 'Name', 
+                'rules' => 'trim|required'
+            ),
+            'email'    => array(
+                'field' => 'email', 
+                'label' => 'Email', 
+                'rules' => 'trim|required|valid_email|callback__uniqueEmail'
+            ),
+            'password' => array(
+                'field' => 'password', 
+                'label' => 'Password', 
+                'rules' => 'trim|matches[password_confirm]'
+            ),
+            'password_confirm' => array(
+                'field' => 'password_confirm', 
+                'label' => 'Confirm password', 
+                'rules' => 'trim|min_length[6]|matches[password]'
+            ),
         );
     }
     
