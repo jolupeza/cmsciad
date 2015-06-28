@@ -19,14 +19,11 @@ class Migration_Create_articles extends CI_Migration {
                 'type' => 'VARCHAR',
                 'constraint' => '100',
             ),
-            'pubdate' => array(
-                'type' => 'DATE',
-            ),
             'body' => array(
                 'type' => 'TEXT'
             ),
-            'created' => array(
-                'type' => 'DATETIME'
+            'pubdate' => array(
+                'type' => 'DATE',
             ),
             'modified' => array(
                 'type' => 'DATETIME'

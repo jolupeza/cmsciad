@@ -81,7 +81,6 @@ class MY_Model extends CI_Model {
             !isset($data[$this->_primaryKey]) || $data[$this->_primaryKey] = NULL;
             $this->db->set($data);
             $this->db->insert($this->_tableName);
-            echo $this->db->last_query();
             $id = $this->db->insert_id();
         }
         // Update
@@ -109,6 +108,6 @@ class MY_Model extends CI_Model {
         
         $this->db->where($this->_primaryKey, $id);
         $this->db->limit(1);
-        $this->db->delete($this->_tableName);
+        return $this->db->delete($this->_tableName);
     }
 }

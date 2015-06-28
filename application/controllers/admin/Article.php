@@ -30,7 +30,7 @@ class Article extends Admin_Controller {
         {
             $this->data['article'] = $this->Article_model->getNew();
         }
-                
+                        
         // Set up the form
         $rules = $this->Article_model->getRules();
         $this->form_validation->set_rules($rules);
@@ -44,7 +44,11 @@ class Article extends Admin_Controller {
                 'body', 
                 'pubdate'
             ));
+            !empty($data['slug']) || $data['slug'] = url_title($data['title'], '-', TRUE);
+            
             $this->Article_model->save($data, $id);
+            $this->session->set_flashdata('success', 'Se guardó correctamente.');
+            
             redirect('admin/article');
         }
         
@@ -55,7 +59,10 @@ class Article extends Admin_Controller {
     
     public function delete($id)
     {
-        $this->Article_model->delete($id);
+        if ( $this->Article_model->delete($id) )
+        {
+            $this->session->set_flashdata('info', 'Se eliminó correctamente.');
+        }
         redirect('admin/article');
     }
 }

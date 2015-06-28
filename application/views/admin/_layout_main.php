@@ -6,8 +6,20 @@
         <div class="sidebar">
             <nav class="main-menu">
                 <ul class="main-menu__list">
+                     <li class="main-menu__item">
+                        <a href="<?php echo site_url('admin/dashboard'); ?>"><i class="fa fa-home"></i>Dashboard</a>
+                    </li>
                     <li class="main-menu__item">
                         <a href="<?php echo site_url('admin/user'); ?>"><i class="fa fa-user"></i>Usuarios</a>
+                    </li>
+                    <li class="main-menu__item">
+                        <a href="<?php echo site_url('admin/article'); ?>"><i class="fa fa-file-text-o"></i>Entradas</a>
+                    </li>
+                    <li class="main-menu__item">
+                        <a href="<?php echo site_url('admin/page'); ?>"><i class="fa fa-file-o"></i>Páginas</a>
+                        <ul>
+                                <li><a href="<?php echo site_url('admin/page/order'); ?>">Orden</a></li>
+                            </ul>
                     </li>
                 </ul>
             </nav>
@@ -46,6 +58,18 @@
                             <?php if ($this->session->flashdata('error')) : ?>
                                 <div class="alert alert-danger alert--login" role="alert">
                                     <?php echo $this->session->flashdata('error'); ?>
+                                </div>
+                            <?php endif; ?>
+                            
+                            <?php if ($this->session->flashdata('success')) : ?>
+                                <div class="alert alert-success alert--login" role="alert">
+                                    <?php echo $this->session->flashdata('success'); ?>
+                                </div>
+                            <?php endif; ?>
+                            
+                            <?php if ($this->session->flashdata('info')) : ?>
+                                <div class="alert alert-info alert--login" role="alert">
+                                    <?php echo $this->session->flashdata('info'); ?>
                                 </div>
                             <?php endif; ?>
                         </div>

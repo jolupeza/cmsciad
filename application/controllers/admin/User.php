@@ -41,6 +41,7 @@ class User extends Admin_Controller {
             $data = $this->User_model->arrayFromPost(array('name', 'email', 'password'));
             $data['password'] = $this->User_model->hash($data['password']);
             $this->User_model->save($data, $id);
+            $this->session->set_flashdata('success', 'Se guardó correctamente.');
             redirect('admin/user');
         }
         
@@ -51,7 +52,10 @@ class User extends Admin_Controller {
     
     public function delete($id)
     {
-        $this->User_model->delete($id);
+        if ( $this->User_model->delete($id) )
+        {
+            $this->session->set_flashdata('info', 'Se eliminó correctamente.');
+        }
         redirect('admin/user');
     }
 
@@ -102,7 +106,7 @@ class User extends Admin_Controller {
         
         if (count($user))
         {
-            $this->form_validation->set_message('_uniqueEmail', '%s should be unique');
+            $this->form_validation->set_message('_uniqueEmail', '%s ya se encuentra registrado.');
             return FALSE;
         }
         

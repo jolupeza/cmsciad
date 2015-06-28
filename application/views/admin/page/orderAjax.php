@@ -1,4 +1,5 @@
 <?php
+    dump($pages);
     echo getOl($pages);
 
     function getOl($array, $child = FALSE) 
@@ -31,13 +32,11 @@
 ?>
 <script>
     $(document).ready(function(){
-
         $('.sortable').nestedSortable({
             handle: 'div',
             items: 'li',
             toleranceElement: '> div',
             maxLevels: 2
         });
-
     });
 </script>

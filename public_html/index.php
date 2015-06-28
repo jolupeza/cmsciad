@@ -56,8 +56,9 @@ date_default_timezone_set('America/Lima');
  * NOTE: If you change these, also change the error_reporting() code below
  */
     $root = dirname(__FILE__);
+    
     switch ($root) {
-        case 'C:\wamp\www\cmsciad\public_html':
+        case '/home/jperez/web/cmsciad/public_html':
             define('ENVIRONMENT', 'development');
         break;
 

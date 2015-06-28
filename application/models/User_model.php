@@ -32,7 +32,7 @@ class User_model extends MY_Model {
             'password' => array(
                 'field' => 'password', 
                 'label' => 'Password', 
-                'rules' => 'trim|matches[password_confirm]'
+                'rules' => 'trim|min_length[6]|matches[password_confirm]'
             ),
             'password_confirm' => array(
                 'field' => 'password_confirm', 

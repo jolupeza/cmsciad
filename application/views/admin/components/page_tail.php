@@ -4,6 +4,10 @@
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
+        <script>
+            var baseUrl = '<?php echo base_url(); ?>';
+        </script>
+        
         <?php if(isset($sortable) && $sortable === TRUE) : ?>
         <script src="<?php echo site_url('js/jquery-ui.min.js'); ?>"></script>
         <script src="<?php echo site_url('js/jquery.mjs.nestedSortable.js'); ?>"></script>

@@ -15,7 +15,7 @@ class Article_model extends MY_Model {
                 'rules' => 'trim|required|exact_length[10]'
             ),
             'title'    => array('field' => 'title', 'label' => 'Title', 'rules' => 'trim|required|max_length[100]'),
-            'slug'    => array('field' => 'slug', 'label' => 'Slug', 'rules' => 'trim|required|max_length[100]|url_title'),
+            'slug'    => array('field' => 'slug', 'label' => 'Slug', 'rules' => 'trim|max_length[100]|url_title'),
             'body'    => array('field' => 'body', 'label' => 'Body', 'rules' => 'trim|required'),
         );
     }

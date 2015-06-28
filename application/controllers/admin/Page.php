@@ -65,6 +65,7 @@ class Page extends Admin_Controller {
         {
             $data = $this->Page_model->arrayFromPost(array('title', 'slug', 'body', 'parent_id'));
             $this->Page_model->save($data, $id);
+            $this->session->set_flashdata('success', 'Se guardó correctamente.');
             redirect('admin/page');
         }
         
