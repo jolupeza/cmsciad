@@ -11,4 +11,4 @@ nbproject/*
 # SASS
 public_html/.sass-cache/*
 
-*.sh
+deploy.sh
