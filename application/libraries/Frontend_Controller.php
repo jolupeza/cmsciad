@@ -4,6 +4,11 @@
 
     public function __construct() {
         parent::__construct();
+        
+        $this->load->library('form_validation');
+        $this->load->helper('form');
+        
+        $this->data['meta_title'] = $this->config->item('site_name');
     }
 
 }

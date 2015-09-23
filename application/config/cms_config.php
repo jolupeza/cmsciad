@@ -1,3 +1,3 @@
 <?php
-    $config['site_name'] = 'My sitename';
+    $config['site_name'] = 'CMS Watson';
 

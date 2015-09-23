@@ -9,6 +9,6 @@ class Page extends Frontend_Controller {
     
     public function index()
     {
-        
+        echo 'probando';
     }
 }

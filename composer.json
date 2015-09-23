@@ -1,0 +1,9 @@
+{
+    "require": {
+        "fzaninotto/faker": "^1.5"
+    },
+    "autoload": {
+        "classmap" :
+                ["application/libraries"]
+    }
+}

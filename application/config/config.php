@@ -1,18 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-function __autoload($classname)
-{
-    if (strpos($classname, 'CI_') !== 0)
-    {
-        $file = APPPATH . 'libraries/' . $classname . '.php';
-
-        if (file_exists($file) && is_file($file))
-        {
-            @include_once($file);
-        }
-    }
-}
-
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
@@ -143,7 +130,7 @@ $config['subclass_prefix'] = 'MY_';
 | Note: This will NOT disable or override the CodeIgniter-specific
 |	autoloading (application/config/autoload.php)
 */
-$config['composer_autoload'] = FALSE;
+$config['composer_autoload'] = '../vendor/autoload.php';
 
 /*
 |--------------------------------------------------------------------------

@@ -17,7 +17,7 @@ class Migration extends Admin_Controller {
         }
         else 
         {
-            echo 'MIgration worked!';
+            echo 'Migration worked!';
         }
     }
 }

@@ -1,13 +1,14 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class User_model extends MY_Model {
-
+class User_model extends MY_Model 
+{
     public function __construct() 
     {
         parent::__construct();
-        $this->_tableName = 'users';
-        $this->_orderBy = 'name';
-        $this->_rules = array(
+        $this->tableName = 'users';
+        $this->orderBy = 'name';
+        $this->timestamps = TRUE;
+        $this->rules = array(
             'email'    => array(
                 'field' => 'email', 
                 'label' => 'Email', 
@@ -44,52 +45,37 @@ class User_model extends MY_Model {
     
     public function getRules()
     {
-        return $this->_rules;
+        return $this->rules;
     }
     
     public function getRulesAdmin()
     {
-        return $this->_rulesAdmin;
+        return $this->rulesAdmin;
     }
 
-    public function login()
-    {
-        $user = $this->getBy(array(
-            'email' => $this->input->post('email'),
-            'password' => $this->hash($this->input->post('password'))
-        ), TRUE)->row();
-                
-        if (count($user))
-        {
-            // Log in user
-            $data = array(
-                'name'     => $user->name,
-                'email'    => $user->email,
-                'id'       => $user->id,
-                'loggedin' => TRUE
-            );
-            $this->session->set_userdata($data);
-            
-            return TRUE;
-        }
-        
-        return FALSE;
-    }
-    
-    public function logout()
-    {
-        $this->session->sess_destroy();
-    }
-    
-    public function loggedin()
-    {
-        return (bool)$this->session->userdata('loggedin');
-    }
-    
-    public function hash($string)
-    {
-        return hash('sha512', $string . $this->config->item('encryption_key'));
-    }
+//    public function login()
+//    {
+//        $user = $this->getBy(array(
+//            'email' => $this->input->post('email'),
+//            'password' => $this->hash($this->input->post('password'))
+//        ), TRUE)->row();
+//                
+//        if (count($user))
+//        {
+//            // Log in user
+//            $data = array(
+//                'name'     => $user->name,
+//                'email'    => $user->email,
+//                'id'       => $user->id,
+//                'loggedin' => TRUE
+//            );
+//            $this->session->set_userdata($data);
+//            
+//            return TRUE;
+//        }
+//        
+//        return FALSE;
+//    }
     
     public function getNew()
     {
